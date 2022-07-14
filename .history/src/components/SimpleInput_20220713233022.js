@@ -17,8 +17,9 @@ const SimpleInput = (props) => {
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
-    if (event.target.value.trim() !== "") {
+    if (enteredName.trim() !== "") {
       setEnteredNameIsValid(true);
+      return;
     }
   };
 
@@ -26,6 +27,7 @@ const SimpleInput = (props) => {
     setEnteredNameTouched(true);
     if (enteredName.trim() === "") {
       setEnteredNameIsValid(false);
+      return;
     }
   };
 
