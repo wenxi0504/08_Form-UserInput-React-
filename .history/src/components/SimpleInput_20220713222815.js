@@ -15,9 +15,6 @@ const SimpleInput = (props) => {
     //method 2 continue
     const enterValue = nameInputRef.current.value;
     console.log(enterValue);
-
-    //nameInputRef.current.value='';=> NOT IDEAL,dont manipulate the dom
-    //setEnteredName('');
   };
 
   return (
@@ -29,7 +26,6 @@ const SimpleInput = (props) => {
           type="text"
           id="name"
           onChange={nameInputChangeHandler}
-          // two way bind
           value={enteredName}
         />
       </div>

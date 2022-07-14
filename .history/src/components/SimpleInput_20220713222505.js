@@ -4,7 +4,7 @@ const SimpleInput = (props) => {
   //method 2 use ref
   const nameInputRef = useRef();
 
-  // method 1 use State,only needs the value once
+  // method 1
   const [enteredName, setEnteredName] = useState("");
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
@@ -12,12 +12,6 @@ const SimpleInput = (props) => {
   const formSubmissionHandler = (event) => {
     event.preventDefault();
     console.log(enteredName);
-    //method 2 continue
-    const enterValue = nameInputRef.current.value;
-    console.log(enterValue);
-
-    //nameInputRef.current.value='';=> NOT IDEAL,dont manipulate the dom
-    //setEnteredName('');
   };
 
   return (
@@ -29,8 +23,6 @@ const SimpleInput = (props) => {
           type="text"
           id="name"
           onChange={nameInputChangeHandler}
-          // two way bind
-          value={enteredName}
         />
       </div>
       <div className="form-actions">
