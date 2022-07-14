@@ -16,12 +16,9 @@ const SimpleInput = (props) => {
   const enteredNameIsValid = enteredName.trim() !== " ";
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
-  const enteredEmailIsValid = enteredEmail.includes("@");
-  const enteredEmailIsInValid = !enteredEmailIsValid && enteredEmailTouched;
-
   //method2: check form valid
   let formIsValid = false;
-  if (enteredNameIsValid && enteredEmailIsValid) {
+  if (enteredNameIsValid) {
     formIsValid = true;
   }
 
@@ -95,16 +92,9 @@ const SimpleInput = (props) => {
     //nameInputRef.current.value='';=> NOT IDEAL,dont manipulate the dom
     setEnteredName("");
     setEnteredNameTouched(false);
-
-    setEnteredEmail("");
-    setEnteredEmailTouched(false);
   };
 
   const nameInputClasses = nameInputIsInvalid
-    ? "form-control invalid"
-    : "form-control ";
-
-  const emailInputClasses = enteredEmailIsInValid
     ? "form-control invalid"
     : "form-control ";
 
@@ -125,7 +115,7 @@ const SimpleInput = (props) => {
           <p className="error-text">Name must not be empty.</p>
         )}
       </div>
-      <div className={emailInputClasses}>
+      <div className={nameInputClasses}>
         <label htmlFor="email">Your E-Mail</label>
         <input
           ref={nameInputRef}
@@ -136,7 +126,7 @@ const SimpleInput = (props) => {
           // two way bind
           value={enteredEmail}
         />
-        {enteredEmailIsInValid && (
+        {nameInputIsInvalid && (
           <p className="error-text">Please enter a valid email.</p>
         )}
       </div>
