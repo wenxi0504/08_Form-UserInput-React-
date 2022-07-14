@@ -59,13 +59,11 @@ const SimpleInput = (props) => {
 
     //nameInputRef.current.value='';=> NOT IDEAL,dont manipulate the dom
     setEnteredName("");
-    setEnteredNameTouched(false);
   };
 
   const nameInputClasses = nameInputIsInvalid
     ? "form-control invalid"
     : "form-control ";
-
   return (
     <form onSubmit={formSubmissionHandler}>
       <div className={nameInputClasses}>
