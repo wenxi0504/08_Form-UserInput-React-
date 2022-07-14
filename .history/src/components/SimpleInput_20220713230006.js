@@ -20,8 +20,6 @@ const SimpleInput = (props) => {
   };
   const formSubmissionHandler = (event) => {
     event.preventDefault();
-    setEnteredNameTouched(true);
-
     if (enteredName.trim() === "") {
       setEnteredNameIsValid(false);
       return;
