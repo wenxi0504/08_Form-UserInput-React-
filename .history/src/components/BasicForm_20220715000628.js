@@ -1,5 +1,3 @@
-// you can try use third library Formik
-
 import useInput from "../hooks/use-inputs";
 
 const isNotEmpty = (value) => value.trim() !== "";
