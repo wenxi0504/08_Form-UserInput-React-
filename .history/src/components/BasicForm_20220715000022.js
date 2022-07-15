@@ -36,17 +36,14 @@ const BasicForm = (props) => {
     formIsValid = true;
   }
 
-  const submitHandler = (event) => {
+  const SubmitHandler = event => { 
     event.preventDefault();
-    if (!formIsValid) {
+    if (!formIsValid) { 
       return;
     }
-    console.log("Submitted");
-    console.log(firstNameValue, lastNameValue, emailValue);
-    resetFirstName();
-    resetLastName();
-    resetEmail();
-  };
+    console.log('Submitted');
+    console.log(firstNameValue, lastNameValue, emailValue)
+  }
 
   const firstNameClasses = firstNameHasError
     ? "form-control valid"
@@ -56,7 +53,7 @@ const BasicForm = (props) => {
     : "form-control";
   const emailClasses = emailHasError ? "form-control valid" : "form-control";
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={ }>
       <div className="control-group">
         <div className={firstNameClasses}>
           <label
@@ -68,9 +65,7 @@ const BasicForm = (props) => {
             First Name
           </label>
           <input type="text" id="name" />
-          {firstNameHasError && (
-            <p className="error-text">Please enter a first name.</p>
-          )}
+          {firstNameHasError && <p>Please enter a first name.</p>}
         </div>
         <div className={lastNameClasses}>
           <label
@@ -82,9 +77,7 @@ const BasicForm = (props) => {
             Last Name
           </label>
           <input type="text" id="name" />
-          {lastNameHasError && (
-            <p className="error-text">Please enter a last name.</p>
-          )}
+          {lastNameHasError && <p>Please enter a last name.</p>}
         </div>
       </div>
       <div className={emailClasses}>
@@ -97,7 +90,7 @@ const BasicForm = (props) => {
           E-Mail Address
         </label>
         <input type="text" id="name" />
-        {emailHasError && <p className="error-text">Please enter an Email.</p>}
+        {emailHasError && <p>Please enter an Email.</p>}
       </div>
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
